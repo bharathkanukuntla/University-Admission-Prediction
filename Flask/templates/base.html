@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <style>
+        .login {
+            top: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>University Admission Prediction</h1>
+    <div class="login">
+
+
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('y_pred')}}" method="post">
+            <label for="grescore">GRE Score</label>
+            <input type="text" name="grescore" placeholder="Enter GRE Score" id="grescore" required="required" />
+
+            <label for="tofelscore">TOFEL Score</label>
+            <input type="text" name="tofelscore" placeholder="Enter TOFEL Score" id="tofelscore" required="required" />
+
+            <label for="universityrating">University Rating</label>
+            <input type="text" name="universityrating" placeholder="Enter University Rating" id="universityrating" required="required" />
+
+            <label for="sop">SOP(Statement of Purpose)</label>
+            <input type="text" name="sop" placeholder="Enter SOP" id="sop" required="required" />
+
+            <label for="lor">LOR(Letter of Recommendation)</label>
+            <input type="text" name="lor" placeholder="Enter LOR" id="lor" required="required" min="0" max="5" />
+
+            <label for="cgpa">CGPA</label>
+            <input type="text" name="cgpa" placeholder="Enter CGPA" id="cgpa" required="required" />
+
+            <label for="research">Research</label>
+            <input type="text" name="research" placeholder="Research" id="research" required="required" />
+
+            <button type="reset" class="btn btn-primary  btn-large">Clear</button>
+            <button type="submit" class="btn btn-primary  btn-large">Predict</button>
+
+            <br>
+            <br>Chances of getting admission in a university : {{ prediction_text }}
+        </form>
+
+
+
+    </div>
+
+
+</body>
+
+</html>
